@@ -1,12 +1,22 @@
 import React from 'react'
 import '../styles/TopBanner.css'
+import CategoryNavBar from './CategoryNavBar'
 
 
-export default function TopBanner() {
+
+export function TopBanner() {
   return (
     <>
-      <div>
-        <h1>Top toppiiiiiiiiii</h1>
+      <div className='banner-container'>
+        <div className='shopbanner'>
+
+        </div>
+        <div className='search-bar'>
+
+        </div>
+        <div className='nav-bar'>
+          <CategoryNavBar />
+        </div>
       </div>
     </>
   )

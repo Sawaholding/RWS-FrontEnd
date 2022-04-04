@@ -4,12 +4,10 @@ import '../styles/CategoryNavBar.css'
 
 export default function CategoryNavBar() {
     return (
-
         <>
 
 
 
-            <div>CategoryNavBar</div>
 
         </>
 

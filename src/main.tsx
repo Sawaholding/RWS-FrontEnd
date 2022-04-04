@@ -9,9 +9,8 @@ ReactDOM.render(
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-
       </Routes>
-    </Router>,
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 )
