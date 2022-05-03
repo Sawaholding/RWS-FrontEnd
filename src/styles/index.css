@@ -1,4 +1,12 @@
-:root {
-    --container: 50%;
-    --roundness: 7px;
-}
+@media screen and (max-width: 900px) {
+    .middle-content {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      padding: 0;
+    }
+  
+    .middle-content div {
+      border-radius: unset;
+      font-size: 30px;
+    }
+  }
