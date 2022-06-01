@@ -1,3 +1,5 @@
+
+
 @media screen and (max-width: 900px) {
     .middle-content {
       grid-template-columns: repeat(2, 1fr);
@@ -10,3 +12,4 @@
       font-size: 30px;
     }
   }
+  

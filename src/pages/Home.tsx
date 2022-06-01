@@ -21,30 +21,35 @@ export default function Home() {
     useEffect(() => {
         fetchCategories().then(setCategories)
     }, [])
-    const bannerImage = 'https://www.nestleprofessionalmena.com/sites/default/files/2020-05/Vision%20banner.png'
+    const bannerImage = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8acff337505429.57430a053a549.jpg'
+    // const bannerImage = 'https://www.nestleprofessionalmena.com/sites/default/files/2020-05/Vision%20banner.png'
     // const bannerImage = ""
     return (
-        <>{
+        <>
+            {
 
-            < div className='app-Container'>
-                <div className='top-Banner'>
-                    <TopBanner imageUrl={bannerImage} />
-                    <h1></h1>
-                </div>
-                <div className='middle-content'>
-                    {categories.length &&
-                        categories.map((c) => {
-                            return <CategoryCard key={c.id} {...c} />
-                        })
-                    }
+                < div className='app-Container'>
+                    <div className='top-Banner'>
+                        <TopBanner imageUrl={bannerImage} />
+                        <h1></h1>
+                    </div>
+                    <div className='middle-content'>
+                        {
+                            categories.length &&
+                            categories.map((c) => {
+                                return <CategoryCard key={c.id} {...c} />
+                            })
+                        }
 
-                </div>
-                <h1></h1>
-                <div className='down-Banner'>
+                    </div>
                     <h1></h1>
+                    <div className='down-Banner'>
+                        <h1></h1>
+                        <button type="button" className="btn">Admin Edit</button>
+                    </div>
                 </div>
-            </div>
-        }
+
+            }
         </>
     )
 }
