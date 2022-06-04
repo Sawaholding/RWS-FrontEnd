@@ -2,7 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { CategoryNavBar, TopBanner, CategoryCard, EditCategoryForm } from '../components'
 import { Category } from '../types';
 import { Link, useSearchParams } from 'react-router-dom'
-import { fetchCategories, fetchOneCategory } from '../api'
+import { fetchCategories, fetchOneCategory, postCategory } from '../api'
+import { v4 as uuid } from 'uuid';
+
+
 
 export default function EditingForm() {
     const [searchParams, _] = useSearchParams()
@@ -11,6 +14,7 @@ export default function EditingForm() {
 
     // Reference input
     const nameRef = useRef(null);
+    const imageRef = useRef(null);
     // fetch ref input using `nameRef.current.value`
     // add `ref={nameRef}` to inputs
 
@@ -18,24 +22,36 @@ export default function EditingForm() {
         fetchOneCategory(categoryId).then(setCategory);
     }, [])
 
-    function createCategory() {
+    async function createCategory() {
         const newCategory: Category = {
-            id: null, // set random uuid
+            id: uuid(),
             dateTimeCreated: new Date().toString(),
             name: nameRef.current.value,
-            image: ''
+            image: imageRef.current.value
         }
+        await postCategory(newCategory)
 
         console.log(newCategory)
         // call API here
     }
+    async function deleteCategory() {
+        const newCategory: Category = {
+            id: uuid(),
+            dateTimeCreated: new Date().toString(),
+            name: nameRef.current.value,
+            image: imageRef.current.value
+        }
+        await postCategory(newCategory)
 
+        console.log(newCategory)
+        // call API here
+    }
     return (
         <div>
             <p>Name</p>
             <input ref={nameRef} type="text" id="name" value={category?.name} />
             <p>Image URL</p>
-            <input type="text" id="name" value={category?.image} />
+            <input type="text" ref={imageRef} id="name" value={category?.image} />
 
             <div>
                 <br />
@@ -46,7 +62,7 @@ export default function EditingForm() {
                         <button>Delete category</button>
                     </>
                     :
-                    <button onClick={createCategory}>Create category</button>
+                    <button onClick={() => createCategory}>Create category</button>
                 }
                 <button>Cancel</button>
             </div>

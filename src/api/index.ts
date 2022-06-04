@@ -1,2 +1,5 @@
 export { fetchCategories } from './Categories'
 export { fetchOneCategory } from './Categories'
+export { postCategory } from './Categories'
+export { deleteCategory } from './Categories'
+export { putCategory } from './Categories'

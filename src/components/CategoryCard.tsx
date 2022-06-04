@@ -4,8 +4,8 @@ import EditCategoryForm from './EditCategoryForm'
 
 export default function CategoryCard(props: { category: Category, adminMode: boolean }) {
 
-    !props.adminMode ? console.log('false') :
-        console.log('true')
+    !props.adminMode ? console.log('catagory admin mode false') :
+        console.log('catagory admin mode true')
 
     if (!props.adminMode) {
         return (
