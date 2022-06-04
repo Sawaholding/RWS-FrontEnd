@@ -20,3 +20,14 @@ export async function fetchCategories(): Promise<Category[]> {
     //         .catch(console.log)
 
 }
+
+
+export async function fetchOneCategory(id: string): Promise<Category> {
+
+    return await axios
+        .get('http://localhost:8080/categories/' + id)
+        .then((res) => res.data)
+        .catch(console.log)
+
+}
+
