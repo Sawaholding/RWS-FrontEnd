@@ -29,6 +29,11 @@ export async function fetchOneCategory(id: string): Promise<Category> {
         .catch(console.log)
 }
 
+export async function deleteCategory(category: Category) {
+    await axios
+        .delete('http://localhost:8080/categories/' + category.id)
+        .catch(console.log)
+}
 
 export async function postCategory(category: Category) {
     await axios
@@ -38,13 +43,10 @@ export async function postCategory(category: Category) {
         .catch(console.log)
 }
 
-export async function deleteCategory(category: Category) {
-    await axios.delete('http://localhost:8080/Category', { data: category }).catch(console.log)
-}
 
 export async function putCategory(category: Category) {
     await axios
-        .put('https://menuapi.tycho.dev/Category', category, {
+        .put('http://localhost:8080/categories', category, {
             headers: { 'Content-Type': 'application/json' },
         })
         .catch(console.log)
