@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { CategoryNavBar, TopBanner, CategoryCard, EditCategoryForm } from '../components'
+// import { CategoryNavBar, TopBanner, CategoryCard, EditCategoryForm } from '../components'
 import { Category } from '../types';
 import { Link, useSearchParams } from 'react-router-dom'
 import { fetchCategories, fetchOneCategory, postCategory, deleteCategory, putCategory } from '../api'
@@ -8,19 +8,28 @@ import { v4 as uuid } from 'uuid';
 
 
 export default function EditingForm() {
+
     const [searchParams, _] = useSearchParams()
     const categoryId = searchParams.get('category') as string
+    const addingMode = searchParams.get('addingMode') as string
     const [currentCategory, setCategory] = useState<Category>();
 
-    // Reference input
+
+
+
     const nameRef = useRef(null);
     const imageRef = useRef(null);
-    // fetch ref input using `nameRef.current.value`
-    // add `ref={nameRef}` to inputs
 
     useEffect(() => {
         fetchOneCategory(categoryId).then(setCategory);
+        console.log(typeof (categoryId))
+        console.log(categoryId)
+        console.log(typeof (Boolean(addingMode)))
     }, [])
+
+
+
+
 
     async function createCategory() {
         const newCategory: Category = {
@@ -31,8 +40,8 @@ export default function EditingForm() {
         }
         await postCategory(newCategory)
         console.log(newCategory)
-        // call API here
     }
+
     async function deleteCat() {
         console.log(currentCategory)
         await deleteCategory(currentCategory)
@@ -47,8 +56,6 @@ export default function EditingForm() {
         }
         console.log(newCategory)
         await putCategory(newCategory)
-        // console.log(newCategory)
-        // call API here
     }
 
 
@@ -59,7 +66,6 @@ export default function EditingForm() {
             <input type="text" ref={nameRef} id="name" defaultValue={currentCategory?.name} />
             <p>Image URL</p>
             <input type="text" ref={imageRef} id="image" defaultValue={currentCategory?.image} />
-
             <div>
                 <br />
 
@@ -69,7 +75,7 @@ export default function EditingForm() {
                         <button onClick={deleteCat}>Delete category</button>
                     </>
                     :
-                    <button onClick={() => createCategory}>Create category</button>
+                    <button onClick={createCategory}>Create category</button>
                 }
                 <button>Cancel</button>
             </div>
