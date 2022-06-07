@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react'
-import { CategoryNavBar, TopBanner, CategoryCard, EditCategoryForm } from '../components'
+import { CategoryNavBar, TopBanner, CategoryCard } from '../components'
 import { Category } from '../types'
 import { fetchCategories, fetchOneCategory } from '../api'
 import '../styles/Home.css'
@@ -9,11 +9,12 @@ export default function Home() {
     const bannerImage = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8acff337505429.57430a053a549.jpg';
     const [categories, setCategories] = useState<Category[]>([]);
     const [adminMode, setAdminMode] = useState<boolean>();
-
+    const [addingMode, setaddingMode] = useState<boolean>();
     const cookies = new Cookies();
 
     useEffect(() => {
         fetchCategories().then(setCategories);
+        setAdminMode(false);
         setAdminMode(false);
         // setAdmin(cookies.get('admin') as boolean)
     }, [])
@@ -28,13 +29,24 @@ export default function Home() {
             <div className='middle-content'>
                 {adminMode ?
                     <>
-                        <div id='adding-cat-button'>adding</div>
+                        <a id='adding-cat-button'
+                            onClick={
+                                () => {
+
+                                    setaddingMode(true)
+                                    setAdminMode(true)
+                                }
+                            }
+                            href={'/editform?category=' + '&addingMode=' + addingMode}
+
+                        >adding</a>
                     </> : null
                 }
 
                 {categories.length &&
                     categories.map((c) => {
-                        return <CategoryCard key={c.id} {...c} category={c} adminMode={adminMode} />
+                        return <CategoryCard key={c.id} {...c} category={c} adminMode={adminMode} addingMode={addingMode} />
+
                         // return CategoryCard();
                     })}
             </div>
@@ -58,6 +70,8 @@ export default function Home() {
                             c = Boolean(c)
                             console.log(typeof c)
                             console.log("cookie boolean value  " + c)
+
+                            !adminMode ? setaddingMode(true) : setaddingMode(false);
                             !adminMode ? setAdminMode(true) : setAdminMode(false);
 
                         }
