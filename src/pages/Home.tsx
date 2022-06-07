@@ -1,7 +1,7 @@
-import { useEffect, useState, useRef } from 'react'
-import { CategoryNavBar, TopBanner, CategoryCard } from '../components'
+import { useEffect, useState } from 'react'
+import { TopBanner, CategoryCard } from '../components'
 import { Category } from '../types'
-import { fetchCategories, fetchOneCategory } from '../api'
+import { fetchCategories, } from '../api'
 import '../styles/Home.css'
 import Cookies from 'universal-cookie'
 
@@ -57,32 +57,7 @@ export default function Home() {
 
             <div className='btn'>
                 <button type="button" onClick=
-                    {
-                        () => {
-                            console.log(typeof adminMode)
-                            let s = adminMode
-                            let ss = s.toString()
-                            console.log("type of ss    " + typeof ss + "  " + ss)
-                            cookies.remove('admin')
-                            cookies.set('admin', ss)
-                            cookies.set('admin', adminMode)
-                            let c = cookies.get('admin')
-                            c = Boolean(c)
-                            console.log(typeof c)
-                            console.log("cookie boolean value  " + c)
-
-                            !adminMode ? setaddingMode(true) : setaddingMode(false);
-                            !adminMode ? setAdminMode(true) : setAdminMode(false);
-
-                        }
-
-                        // () => {
-                        //  cookies.set('admin', cookies.get('admin') === 'false' ? false : true)
-                        // console.log(cookies.get('admin') === 'false' ? true : false)
-                        // cookies.remove('admin')
-                        // cookies.set('admin', cookies.get('admin') === 'false' ? true : false)
-                        // window.location.reload()}
-                    }>
+                    {() => { !adminMode ? setAdminMode(true) : setAdminMode(false); }}>
                     Admin Edit
                 </button>
             </div>

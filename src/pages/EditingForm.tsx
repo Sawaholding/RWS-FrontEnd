@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 // import { CategoryNavBar, TopBanner, CategoryCard, EditCategoryForm } from '../components'
 import { Category } from '../types';
-import { Link, useSearchParams } from 'react-router-dom'
-import { fetchCategories, fetchOneCategory, postCategory, deleteCategory, putCategory } from '../api'
+import { useSearchParams } from 'react-router-dom'
+import { fetchOneCategory, postCategory, deleteCategory, putCategory } from '../api'
 import { v4 as uuid } from 'uuid';
 
 
@@ -15,8 +15,6 @@ export default function EditingForm() {
     const [currentCategory, setCategory] = useState<Category>();
 
 
-
-
     const nameRef = useRef(null);
     const imageRef = useRef(null);
 
@@ -26,10 +24,6 @@ export default function EditingForm() {
         console.log(categoryId)
         console.log(typeof (Boolean(addingMode)))
     }, [])
-
-
-
-
 
     async function createCategory() {
         const newCategory: Category = {
@@ -58,8 +52,6 @@ export default function EditingForm() {
         await putCategory(newCategory)
     }
 
-
-
     return (
         <div>
             <p>Name</p>
@@ -68,7 +60,6 @@ export default function EditingForm() {
             <input type="text" ref={imageRef} id="image" defaultValue={currentCategory?.image} />
             <div>
                 <br />
-
                 {categoryId ?
                     <>
                         <button onClick={updateCategory}>Edit category</button>
