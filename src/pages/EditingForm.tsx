@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-// import { CategoryNavBar, TopBanner, CategoryCard, EditCategoryForm } from '../components'
 import { Category } from '../types';
 import { useSearchParams } from 'react-router-dom'
 import { fetchOneCategory, postCategory, deleteCategory, putCategory } from '../api'
