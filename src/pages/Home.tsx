@@ -16,7 +16,6 @@ export default function Home() {
         setAdminMode(false);
     }, [])
 
-
     return (
         < div className='app-Container'>
             <div className='top-Banner'>
@@ -29,12 +28,11 @@ export default function Home() {
                         <a id='adding-cat-button'
                             onClick={
                                 () => {
-
                                     setaddingMode(true)
-                                    setAdminMode(true)
+                                    // setAdminMode(true)
                                 }
                             }
-                            href={'/editform?category=' + '&addingMode=' + addingMode}
+                            href={'/editform?category=' + '&addingMode=' + 'true'}
 
                         >adding</a>
                     </> : null
@@ -54,6 +52,7 @@ export default function Home() {
 
             <div className='btn'>
                 <button type="button" onClick=
+
                     {() => { !adminMode ? setAdminMode(true) : setAdminMode(false); }}>
                     Admin Edit
                 </button>

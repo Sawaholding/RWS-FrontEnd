@@ -34,7 +34,7 @@ export default function CategoryCard(props: { category: Category, adminMode: boo
                 <a href={'/editform?category=' + props.category.id + '&addingMode=' + props.addingMode}>
                     <div className="big-category-card">{props.category.name}</div>
                 </a>
-                {console.log(typeof (props.addingMode.toString()) + "typ of ADDING")}
+                {/* {console.log(typeof (props.addingMode.toString()) + "typ of ADDING")} */}
             </div>
         )
     }
