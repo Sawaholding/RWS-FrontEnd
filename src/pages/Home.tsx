@@ -3,20 +3,17 @@ import { TopBanner, CategoryCard } from '../components'
 import { Category } from '../types'
 import { fetchCategories, } from '../api'
 import '../styles/Home.css'
-import Cookies from 'universal-cookie'
 
 export default function Home() {
     const bannerImage = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8acff337505429.57430a053a549.jpg';
     const [categories, setCategories] = useState<Category[]>([]);
     const [adminMode, setAdminMode] = useState<boolean>();
     const [addingMode, setaddingMode] = useState<boolean>();
-    const cookies = new Cookies();
 
     useEffect(() => {
         fetchCategories().then(setCategories);
         setAdminMode(false);
         setAdminMode(false);
-        // setAdmin(cookies.get('admin') as boolean)
     }, [])
 
 
