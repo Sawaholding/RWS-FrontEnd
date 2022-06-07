@@ -26,13 +26,17 @@ export default function Home() {
                 <h1></h1>
             </div>
             <div className='middle-content'>
-                {
-                    categories.length &&
+                {adminMode ?
+                    <>
+                        <div id='adding-cat-button'>adding</div>
+                    </> : null
+                }
+
+                {categories.length &&
                     categories.map((c) => {
                         return <CategoryCard key={c.id} {...c} category={c} adminMode={adminMode} />
                         // return CategoryCard();
-                    })
-                }
+                    })}
             </div>
             <h1></h1>
             <div className='down-Banner'>
