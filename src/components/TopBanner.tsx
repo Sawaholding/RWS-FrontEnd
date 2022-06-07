@@ -3,9 +3,7 @@ import '../styles/TopBanner.css'
 import CategoryNavBar from './CategoryNavBar'
 import { Link } from 'react-router-dom'
 
-
 export function TopBanner({ imageUrl }: { imageUrl: string }) {
-
 
   return (
     <Link to="/">
