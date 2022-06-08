@@ -1,0 +1,20 @@
+.edit-form-container {
+  width: 550px;
+  height: auto;
+  margin: 50px auto;
+  box-shadow: 0 5px 14px rgb(8, 8, 8, 0.12);
+  border-radius: calc(2 * var(--radius));
+  box-sizing: border-box;
+  padding: 40px 60px;
+  padding-bottom: 100px;
+}
+
+.edit-form-container input {
+  width: 100%;
+}
+
+.edit-form-btns {
+  margin-top: 30px;
+  display: flex;
+  gap: 1em;
+}

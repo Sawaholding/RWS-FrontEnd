@@ -1,24 +1,15 @@
-import '../styles/TopBanner.css'
-import CategoryNavBar from './CategoryNavBar'
-import { Link } from 'react-router-dom'
+import "../styles/TopBanner.css";
 
-export function TopBanner({ imageUrl }: { imageUrl: string }) {
+export function TopBanner() {
+  const bannerImage = "";
 
   return (
-    <Link to="/">
-      <div className='banner-container'>
-        <div className='banner-image'>
-          <img className='image' src={imageUrl} />
-        </div>
-        <div className='search-bar'>
-          <h1>search bar</h1>
-
-        </div>
-        <div className='nav-bar'>
-          <CategoryNavBar />
-        </div>
+    <a href="/">
+      <div className="banner-container">
+        <div className="logo">Sawaholding.</div>
+        {/* <div className="search-bar" /> */}
+        {/* <div className="banner" style={{ backgroundImage: `url(${bannerImage})` }} /> */}
       </div>
-    </Link>
-  )
-
+    </a>
+  );
 }
