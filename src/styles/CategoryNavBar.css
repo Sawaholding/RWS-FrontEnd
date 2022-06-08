@@ -1,0 +1,18 @@
+.category-nav-container {
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+  width: 100%;
+  margin: auto;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  height: 100px;
+}
+
+.category-nav-container .category-card-container {
+  height: 80%;
+  width: 300px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: calc(2 * var(--radius));
+}

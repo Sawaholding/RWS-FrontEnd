@@ -1,49 +1,37 @@
 .banner-container {
-    /* position: fixed; */
-    /* top: var(--cb-top-bar-height-default); */
-    /* width: 100%; */
-    /* height: 20vh; */
-    border: solid 7px pink;
-    /* margin-right: 33px; */
-    /* box-sizing: border-box; */
-}
-
-/* .image:hover {
-    cursor: pointer;
-    
-  } */
-
-.banner-image{
-    box-sizing: border-box;
-    border: solid green 3px;
-    object-fit: inherit;
-    margin: 2px;
-}
-
-.image {
-    display: inline-block;
-  object-fit: inherit;
-  box-sizing: border-box;
+  display: grid;
+  grid-auto-flow: row;
+  gap: 2em;
   width: 100%;
-  max-height: 20vh;
-
+  /* margin-bottom: 40px; */
+  /* background-color: var(--primary); */
+  background-color: white;
+  height: auto;
+  /* box-shadow: 0 5px 14px rgb(8, 8, 8, 0.12); */
+  box-sizing: border-box;
 }
 
+.logo {
+  font-size: 40px;
+  /* font-style: italic; */
+  font-weight: 500;
+  box-sizing: border-box;
+  padding: 20px 47px;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  width: fit-content;
+  transform: skewY(-5deg) scale(0.7);
+  margin: 30px auto;
+}
 
-.search-bar{
-    margin: 2px;
-    height: 3vh;
-    border: solid blue 3px;
-    object-fit: inherit;
-    box-sizing: border-box;
-    height: 20%;
-  }
+.search-bar {
+  width: var(--focus);
+  height: 47px;
+  background-color: #eee;
+  border-radius: calc(2 * var(--radius));
+  margin: auto;
+}
 
-
-.nav-bar{
-    margin: 2px;
-    height: 3vh;
-    border: solid rgb(255, 77, 17) 3px;
-    box-sizing: border-box;
-    height: 35%;
-  }
+.banner {
+  margin: auto;
+}
