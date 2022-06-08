@@ -40,4 +40,3 @@ export default function CategoryCard(props: { category: Category, adminMode: boo
     }
 
 }
-
