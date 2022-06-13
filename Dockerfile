@@ -1,7 +1,7 @@
-FROM node:latest
-WORKDIR /RWS
-COPY package*.json ./
+FROM node:0.14.29
+WORKDIR /app
+COPY package.json /app
 RUN npm i
-COPY . .
 EXPOSE 3000
-CMD ["npm", "run", "dev"]
+COPY . /app
+CMD ["npm","run","dev"]
