@@ -13,7 +13,7 @@ export default function CategoryNavBar() {
 
   return (
     <div className="category-nav-container">
-      {categories.map((category) => {
+      {categories?.map((category) => {
         return <CategoryCard key={category.id} category={category} />;
       })}
     </div>

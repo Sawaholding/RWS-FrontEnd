@@ -31,7 +31,7 @@ export default function Home() {
             </a>
           ) : null}
 
-          {categories.map((category) => {
+          {categories?.map((category) => {
             return <CategoryCard key={category.id} category={category} link={adminMode ? "/editform?category=" + category.id : null} />;
           })}
         </div>
