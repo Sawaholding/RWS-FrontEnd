@@ -5,7 +5,6 @@ import { fetchCategories } from "../api";
 import "../styles/Home.css";
 
 export default function Home() {
-  const bannerImage = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8acff337505429.57430a053a549.jpg';
   const [categories, setCategories] = useState<Category[]>([]);
   const [adminMode, setAdminMode] = useState<boolean>();
   const [addingMode, setaddingMode] = useState<boolean>();
@@ -14,49 +13,38 @@ export default function Home() {
     fetchCategories().then(setCategories);
     setAdminMode(false);
     setAdminMode(false);
-  }, [])
+  }, []);
 
   return (
-    < div className='app-Container'>
-      <div className='top-Banner'>
-        <TopBanner imageUrl={bannerImage} />
-        <h1></h1>
-      </div>
-      <div className='middle-content'>
-        {adminMode ?
-          <>
-            <a id='adding-cat-button'
-              onClick={
-                () => {
-                  setaddingMode(true)
-                  // setAdminMode(true)
-                }
-              }
-              href={'/editform?category=' + '&addingMode=' + 'true'}
+    <>
+      <TopBanner />
 
-            >adding</a>
-          </> : null
-        }
+      <div className="home-container">
+        <CategoryNavBar />
+        
+        <h1>Categories</h1>
+        
+        <div className="home-category-grid">
+          {adminMode ? (
+            <a className="category-card-container add" href={"/editform?category=" + "&addingMode=" + addingMode}>
+              Add new
+            </a>
+          ) : null}
 
-        {categories.length &&
-          categories.map((c) => {
-            return <CategoryCard key={c.id} {...c} category={c} adminMode={adminMode} addingMode={addingMode} />
-
-            // return CategoryCard();
+          {categories?.map((category) => {
+            return <CategoryCard key={category.id} category={category} link={adminMode ? "/editform?category=" + category.id : null} />;
           })}
-      </div>
-      <h1></h1>
-      <div className='down-Banner'>
-        <h1></h1>
-      </div>
+        </div>
 
-      <div className='btn'>
-        <button type="button" onClick=
-
-          {() => { !adminMode ? setAdminMode(true) : setAdminMode(false); }}>
-          Admin Edit
+        <button
+          type="button"
+          onClick={() => {
+            !adminMode ? setAdminMode(true) : setAdminMode(false);
+          }}
+        >
+          Admin
         </button>
       </div>
-    </div >
-  )
+    </>
+  );
 }
