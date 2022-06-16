@@ -30,7 +30,6 @@ export async function postCategory(category: Category) {
         .catch(console.log)
 }
 
-
 export async function putCategory(category: Category) {
     await axios
         .put('http://localhost:8080/categories', category, {
