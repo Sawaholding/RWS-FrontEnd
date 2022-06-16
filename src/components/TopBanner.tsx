@@ -1,8 +1,6 @@
 import "../styles/TopBanner.css";
 
-export function TopBanner() {
-  const bannerImage = "";
-
+export default function TopBanner() {
   return (
     <a href="/">
       <div className="banner-container">

@@ -6,6 +6,7 @@ import { v4 as uuid } from "uuid";
 import "../styles/EditingForm.css";
 
 export default function EditingForm() {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const [searchParams, _] = useSearchParams();
   const categoryId = searchParams.get("category") as string;
   const addingMode = searchParams.get("addingMode") as string;
@@ -51,7 +52,7 @@ export default function EditingForm() {
   return (
     <div className="edit-form-container">
       <h1>Category</h1>
-      
+
       <p>Name</p>
       <input type="text" ref={nameRef} id="name" defaultValue={currentCategory?.name} />
       <p>Image URL</p>

@@ -5,6 +5,7 @@ import { fetchCategories } from "../api";
 import "../styles/Home.css";
 
 export default function Home() {
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const [categories, setCategories] = useState<Category[]>([]);
   const [adminMode, setAdminMode] = useState<boolean>();
   const [addingMode, setaddingMode] = useState<boolean>();
@@ -21,12 +22,12 @@ export default function Home() {
 
       <div className="home-container">
         <CategoryNavBar />
-        
+
         <h1>Categories</h1>
-        
+
         <div className="home-category-grid">
           {adminMode ? (
-            <a className="category-card-container add" href={"/editform?category=" + "&addingMode=" + addingMode}>
+            <a className="category-card-container add" href={"/editform?addingMode=" + addingMode}>
               Add new
             </a>
           ) : null}
