@@ -9,7 +9,6 @@ export async function fetchCategories(): Promise<Category[]> {
 
 }
 
-
 export async function fetchOneCategory(id: string): Promise<Category> {
     return await axios
         .get('http://localhost:8080/categories/' + id)
