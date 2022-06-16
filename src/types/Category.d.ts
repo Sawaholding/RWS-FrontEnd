@@ -3,8 +3,6 @@ export default interface Category {
     dateTimeCreated: string
     name: string
     image: string
-
-
 }
 
 
